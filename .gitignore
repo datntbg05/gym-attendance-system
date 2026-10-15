@@ -1,0 +1,10 @@
+node_modules/
+
+# Bí mật: TUYỆT ĐỐI không đưa lên Git
+.env
+.env.*
+!.env.example
+
+www/
+dist/
+*.log

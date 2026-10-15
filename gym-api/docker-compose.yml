@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:16
+    container_name: gym-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: gym
+    ports:
+      - "5432:5432"
+    volumes:
+      - gym-data:/var/lib/postgresql/data
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+volumes:
+  gym-data:
